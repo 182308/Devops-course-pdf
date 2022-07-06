@@ -1,0 +1,12 @@
+---
+- hosts: webserver
+  vars:
+    http_port: 8087
+    username: raghu
+  vars_prompt:
+    - name: "dbpass"
+      prompt: "Enter the password for database"
+
+  task:
+    - debug: msg="Db password is {{dbpass}}"
+

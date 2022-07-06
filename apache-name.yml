@@ -1,0 +1,9 @@
+---
+- hosts: webserver
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter your name"
+  tasks:
+    - yum: name=httpd state=present
+    - service: name=httpd state=restarted
+    - template: src=index.html dest=/var/www/html/index.html mode=0644

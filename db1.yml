@@ -1,0 +1,9 @@
+---
+- hosts: webserver
+  vars:
+     dbp: abcd@123
+  vars_prompt:
+   - name: "dbpass"
+     prompt: "Enter db password"
+  tasks:
+   - debug: msg="DB password is {{dbp}}"    
